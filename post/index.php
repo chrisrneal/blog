@@ -37,6 +37,7 @@
 
     <head>
         <title>New Post</title>
+        <link rel="stylesheet" type="text/css" href="/blog/style.css">
     </head>
     
     <body>

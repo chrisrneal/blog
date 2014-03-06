@@ -1,0 +1,26 @@
+h1 {
+   margin:20px;
+   color:blue;
+   text-align:center;
+}
+
+.titlebar {
+    color:red;
+    text-align:center;
+}
+
+.title {
+    font-weight:bold;
+    text-align: left;
+}
+
+.date {
+    font-weight:lighter;
+    text-align:right;
+}
+
+body {
+    font-family:sans-serif;
+    width: 800px;
+    margin: 0 auto;
+}
