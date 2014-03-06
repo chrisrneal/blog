@@ -15,8 +15,6 @@
 		<?php
 
 		    include($_SERVER['DOCUMENT_ROOT']."/include.php");
-    
-    		$id=""
 
 	    	if ($_SERVER["REQUEST_METHOD"]=="GET"){
         
@@ -24,8 +22,6 @@
         	    	or die("unable to connect to mysql");
 	        	$db = mysql_select_db('blogapp', $dbroot)
     	        	or die("Unable to connect to db " . mysql_error());
-
-	        	$id=htmlentities($_GET["postid"], ENT_QUOTES | ENT_HTML5);
     	    
 	    	    $error="";
         
@@ -33,7 +29,7 @@
         	    	$error="You must have both a title and contents in your post in order to submit.";
             		echo $error;
 		        }else{
-    		        $sql="select * from blog_entry where id='$id'";
+    		        $sql="select * from blog_entry where date_created = (select max(date_created) from blog_entry)";
         		    $result=mysql_query($sql);
             		echo mysql_error();
             

@@ -27,7 +27,7 @@
             mysql_query($sql);
             echo mysql_error();
             
-            header('Location: displaypost.php?postid='.$id);
+            header('Location: displaypost.php');
         }
     }
     
