@@ -1,6 +1,6 @@
 <?php
 
-    include($_SERVER['DOCUMENT_ROOT']."/include.php");
+    include($_SERVER['DOCUMENT_ROOT']."/blog/lib/include.php");
     
     $title="";
     $entry="";
@@ -14,7 +14,6 @@
             
         $title=htmlentities($_POST["title"], ENT_QUOTES | ENT_HTML5);
         $entry=htmlentities($_POST["post"], ENT_QUOTES | ENT_HTML5);
-        $id=htmlentities($_POST["id"], ENT_QUOTES | ENT_HTML5);
         
         $error="";
         
@@ -27,7 +26,7 @@
             mysql_query($sql);
             echo mysql_error();
             
-            header('Location: displaypost.php?postid='.$id);
+            header('Location: ../');
         }
     }
     

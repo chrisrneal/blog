@@ -1,18 +1,11 @@
 h1 {
    margin:20px;
-   color:#298A08;	
+   color:blue;
    text-align:center;
-}
-
-h2 {
-   margin:20px;
-   color:#298A08;	
-   text-align:center;
-   font-style:italic
 }
 
 .titlebar {
-    color:#298A08;
+    color:red;
     text-align:center;
 }
 
@@ -28,7 +21,6 @@ h2 {
 
 body {
     font-family:sans-serif;
-    margin-left: 200px;
-    padding-right: 200px;
-    background-color:#81F781
+    width: 800px;
+    margin: 0 auto;
 }
