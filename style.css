@@ -1,3 +1,10 @@
+body {
+    font-family:sans-serif;
+    margin-left: 200px;
+    padding-right: 200px;
+    background-color:#81F781
+}
+
 h1 {
    margin:20px;
    color:#298A08;	
@@ -9,7 +16,37 @@ h2 {
    margin:20px;
    color:#298A08;	
    text-align:center;
-   font-style:italic
+   font-style:italic;
+}
+
+table 
+{
+    width:100%;
+    border:0px;
+    vertical-align:bottom;
+}
+
+td tr
+{
+    vertical-align:bottom;
+}
+
+p {
+    text-indent: 0;
+    width:100%;
+}
+
+input[type = "text"] {
+    width:500px;
+}
+
+textarea {
+    height:400px;
+    width:500px;
+}
+
+.error {
+    color:red;
 }
 
 .titlebar {
@@ -19,17 +56,15 @@ h2 {
 
 .title {
     font-weight:bold;
-    text-align: left;
+    text-align:left;
+    font-size:24px;
+
 }
 
 .date {
     font-weight:lighter;
     text-align:right;
-}
-
-body {
-    font-family:sans-serif;
-    margin-left: 200px;
-    padding-right: 200px;
-    background-color:#81F781
+    vertical-align:bottom;
+    font-size:10px;
+    font-style:italic;
 }

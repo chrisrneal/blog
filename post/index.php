@@ -44,20 +44,20 @@
     <body>
 
         <h1>Chris' Blog</h1>
-        <h2><i>New Post</i></h2>
+        <div class="titlebar"><a href="/blog/">Home</a></div>
         
         <form method="post">
+            <br><div class="error"><?php echo $error; ?></div><br>
             <label>
                 <div>Title:<div>
                 <input type="text" name="title" value="<?php echo $title; ?>">
             </label>
+            <br>
         
             <label>
                 <div>Post:</div>
                 <textarea name="post"><?php echo $entry; ?></textarea>
             </label>
-            
-            <div class="error"><?php echo $error; ?></div>
         
             <br><input type="submit">
         </form>

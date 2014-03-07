@@ -24,9 +24,9 @@
             $result = mysql_query("SELECT * FROM blog_entry ORDER BY date_created DESC");
         
             while($row = mysql_fetch_array($result)){
-                echo "<p><span class=\"title\">".$row['title'] . "</span><span class=\"date\">" . $row['date_created'] ."</span><br></p>";
-                echo "<div class=\"contents\">".$row['contents']."</div>";
-                echo "<br><br><br>";
+    			echo "<table><tr><td><div class=\"title\">".$row['title'] . "</div></td><td><div class=\"date\">" . $row['date_created'] ."</div></td></tr></table><hr noshade>";
+    			echo "<table><tr><td><p class=\"contents\">".$row['contents']."</p></td></tr></table>";
+    			echo "<br><br><br>";
             }
     
         ?>
