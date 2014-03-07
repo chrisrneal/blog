@@ -1,6 +1,6 @@
 <?php
 
-    include($_SERVER['DOCUMENT_ROOT']."/include.php");
+    require($_SERVER['DOCUMENT_ROOT']."/include.php");
     
     $title="";
     $entry="";
@@ -12,9 +12,9 @@
         $db = mysql_select_db('blogapp', $dbroot)
             or die("Unable to connect to db " . mysql_error());
             
-        $title=htmlentities($_POST["title"], ENT_QUOTES | ENT_HTML5);
-        $entry=htmlentities($_POST["post"], ENT_QUOTES | ENT_HTML5);
-        $id=htmlentities($_POST["id"], ENT_QUOTES | ENT_HTML5);
+        $title=htmlspecialchars($_POST["title"], ENT_QUOTES | ENT_HTML5);
+        $entry=htmlspecialchars($_POST["post"], ENT_QUOTES | ENT_HTML5);
+        $entry=nl2br($entry);
         
         $error="";
         
@@ -37,14 +37,14 @@
 <HTML>
 
     <head>
-        <title>New Post</title>
+        <title>Chris' Blog - New Entry</title>
         <link rel="stylesheet" type="text/css" href="/blog/style.css">
     </head>
     
     <body>
 
-        <h1>New Post</h1>
-        <h2><i>Chris' Blog</i></h2>
+        <h1>Chris' Blog</h1>
+        <h2><i>New Post</i></h2>
         
         <form method="post">
             <label>
