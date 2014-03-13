@@ -47,11 +47,11 @@
             mysql_query($sql);
             
             echo mysql_error();
-            echo time();
-            setcookie("authuser", "$user|$userHash", (time()+60*60), '/', $MY_DOMAIN);
+            //echo time();
+            setcookie("authuser", "$user|$userHash", 0, '/', $MY_DOMAIN);
             
             //header("Location: welcome.php");
-            echo "completed signup";
+            //echo "completed signup";
         }
     }
 

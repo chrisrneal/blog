@@ -18,8 +18,6 @@
             $loginID=$token;
         }
         
-    }else{
-        echo "cookie wasn't blank";
     }
     
     function verify_login($token, $hash){
