@@ -1,5 +1,7 @@
 <?php
 
+    include($_SERVER['DOCUMENT_ROOT']."/blog/getuser.php");
+
     $user="";
     $pass="";
     $verifypass="";
@@ -28,12 +30,28 @@
             $hasError=TRUE;
         }
         
+        $passHash = hash('sha256', $pass); //need to store the hash.  Need to work on salting passwords.
+        $access_level = 999; //Users default to no access.  Admin will be able to upgrade in new features.
+        $userHash = hash('sha256', $user);
+        
         if($hasError){
             #respond to post request - do nothing
         }else{
-            #redirect user var to welcome page.
-            #http_redirect("/signup/welcome.php", array("user" => "$user"));
-            header("Location: welcome.php?user=".$user);
+            //Register user
+            
+            $dbroot = mysql_connect($DB_HOST, $DB_USER, $DB_PASS)
+                or die("unable to connect to mysql");
+            $db = mysql_select_db('blogapp', $dbroot)
+                or die("Unable to connect to db " . mysql_error());
+            $sql = "INSERT INTO users (username, passwd_hash, access_level) VALUES ('$user', '$passHash', '$access_level')";
+            mysql_query($sql);
+            
+            echo mysql_error();
+            echo time();
+            setcookie("authuser", "$user|$userHash", (time()+60*60), '/', $MY_DOMAIN);
+            
+            //header("Location: welcome.php");
+            echo "completed signup";
         }
     }
 
