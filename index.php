@@ -1,3 +1,10 @@
+<?php
+
+//   include($_SERVER['DOCUMENT_ROOT']."/include.php");
+    require($_SERVER['DOCUMENT_ROOT']."/blog/getuser.php");
+
+?>
+
 <HTML>
 
     <head>
@@ -8,13 +15,24 @@
     <body>
 
         <h1>Chris' Blog</h1>
-        <div class="titlebar"><a href="/blog/post/">add entry</a></div>
+        <div class="titlebar"><a href="/blog/post/">add entry</a>
+        <?php
+            $tab="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+            if ($loginID==""){
+                echo $tab;
+                echo "<a href=\"/blog/signup/\">sign up</a>";
+                echo $tab;
+                echo "<a href=\"/blog/login/\">login</a>";
+            }else{
+                echo $tab;
+                echo "<a href=\"/blog/logout/\">logout $loginID!</a>";
+            }
+        ?>
+        </div>
     
         <br>
     
         <?php
-    
-            require($_SERVER['DOCUMENT_ROOT']."/include.php");
         
             $dbroot = mysql_connect($DB_HOST, $DB_USER, $DB_PASS)
                 or die("unable to connect to mysql");

@@ -90,16 +90,43 @@
 
 <HTML>
 
-<form method="post">
-    <label for="user">Username:</label>
-    <input type="text" name="user" value="<?php echo $user; ?>"><div style="color:red"><?php echo $errUser; ?></div><br>
-    <label for="pass">Password:</label>
-    <input type="password" name="pass" value="<?php echo $pass; ?>"><div style="color:red"><?php echo $errPass; ?></div><br>
-    <label for="verifypass">Verify Password:</label>
-    <input type="password" name="verifypass" value="<?php echo $verifypass; ?>"><div style="color:red"><?php echo $errVerifyPass; ?></div><br>
-    <label for="email">Email Address:</label>
-    <input type="text" name="email" value="<?php echo $email; ?>"><div style="color:red"><?php echo $errEmail; ?></div><br>
-    <input type="submit">
-</form>
+    <head>
+        <title>Chris' Blog - SIGN UP</Title>
+        <link rel="stylesheet" type="text/css" href="/blog/style.css">
+    </head>
+    
+    <body>
+
+        <h1>Chris' Blog</h1>
+        <div class="titlebar"><a href="/blog/">Home</a></div>
+        <br><br>
+
+        <form method="post">
+            <table>
+                <tr>
+                    <td><label for="user">Username:</label></td>
+                    <td><input type="text" name="user" value="<?php echo $user; ?>"></td>
+                    <td><div style="color:red"><?php echo $errUser; ?></div><td>
+                </tr>
+                <tr>
+                    <td><label for="pass">Password:</label></td>
+                    <td><input type="password" name="pass" value="<?php echo $pass; ?>"></td>
+                    <td><div style="color:red"><?php echo $errPass; ?></div></td>
+                </tr>
+                <tr>
+                    <td><label for="verifypass">Verify Password:</label></td>
+                    <td><input type="password" name="verifypass" value="<?php echo $verifypass; ?>"></td>
+                    <td><div style="color:red"><?php echo $errVerifyPass; ?></div></td>
+                </tr>
+                <tr>
+                    <td><label for="email">Email Address:</label></td>
+                    <td><input type="text" name="email" value="<?php echo $email; ?>"></td>
+                    <td><div style="color:red"><?php echo $errEmail; ?></div></td>
+                </tr>
+            </table>
+            <input type="submit">
+        </form>
+    
+    </body>
 
 </HMTL>
