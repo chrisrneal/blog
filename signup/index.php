@@ -48,9 +48,10 @@
             
             echo mysql_error();
             //echo time();
-            setcookie("authuser", "$user|$userHash", 0, '/', $MY_DOMAIN);
             
-            //header("Location: welcome.php");
+            setcookie("authuser", "$user|$userHash", 0, '/', $MY_DOMAIN);
+            header("Location: welcome.php");
+            
             //echo "completed signup";
         }
     }

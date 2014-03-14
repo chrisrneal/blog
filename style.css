@@ -37,7 +37,11 @@ p {
     width:100%;
 }
 
-input[type = "text"] {
+input[type="text"] {
+    width:500px;
+}
+
+input[type="password"] {
     width:500px;
 }
 

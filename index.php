@@ -22,7 +22,7 @@
                 echo $tab;
                 echo "<a href=\"/blog/signup/\">sign up</a>";
                 echo $tab;
-                echo "<a href=\"/blog/login/\">login</a>";
+                echo "<a href=\"/blog/login.php\">login</a>";
             }else{
                 echo $tab;
                 echo "<a href=\"/blog/logout/\">logout $loginID!</a>";
