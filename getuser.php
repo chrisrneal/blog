@@ -4,15 +4,10 @@
 
     $loginID="";
     
-    echo "cookie is: ".$_COOKIE['authuser'];
-    
     if ($_COOKIE['authuser'] != ""){
         
-        echo "hi";
-        
-        list($token, $hash)=split("|", $_COOKIE['authuser']);
-        
-        echo "<br>$token<br>$hash<br>";
+        list($token, $hash)=split("\|", $_COOKIE['authuser']);
+//        echo $DB_HOST;
         
         if(verify_login($token, $hash)){
             $loginID=$token;
@@ -20,17 +15,17 @@
         
     }
     
+//    echo "LoginID is $loginID";
+    
     function verify_login($token, $hash){
         //need to come back and adjust this.  It's a weak security model.
+        
+ //       echo "hi";
         
         //lookUpPriv is a global function in hidden include.php file - valid userids have access <= 999
         if (lookUpPriv($token) >= 1000){
             return false;
         }
-        
-        echo $hash;
-        echo $token;
-        echo hash('sha256', $token);
         
         if (hash('sha256', $token)==$hash){
             return true;
@@ -47,14 +42,14 @@
     //1000 - ERROR
     function lookUpPriv($user){
         
-        require($_SERVER['DOCUMENT_ROOT']."/include.php");
+        include($_SERVER['DOCUMENT_ROOT']."/include.php");
     
         $dbroot = mysql_connect($DB_HOST, $DB_USER, $DB_PASS)
             or die("unable to connect to mysql");
         $db = mysql_select_db('blogapp', $dbroot)
             or die("Unable to connect to db " . mysql_error());
         
-        $sql = "SELECT * FROM users WHERE user_id = '$user'";
+        $sql = "SELECT * FROM users WHERE username = '$user'";
     
         $result = mysql_query($sql);
     
