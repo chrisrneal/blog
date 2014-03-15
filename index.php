@@ -25,7 +25,7 @@
                 echo "<a href=\"/blog/login.php\">login</a>";
             }else{
                 echo $tab;
-                echo "<a href=\"/blog/logout/\">logout $loginID!</a>";
+                echo "<a href=\"/blog/logout.php\">logout $loginID!</a>";
             }
         ?>
         </div>
