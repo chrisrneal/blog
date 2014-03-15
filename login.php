@@ -14,12 +14,12 @@
         $db = mysql_select_db('blogapp', $dbroot) or die("Could not select database. " . mysql_error());
         $sql="SELECT * FROM users WHERE username = '$user'";
         $results=mysql_query($sql);
-        $userRow=mysql_fetch_array($results);
         
         //Now lets test results for authentication using weak unsalted model.
-        if (mysql_num_rows() == 1){
+        if (mysql_num_rows($results) == 1){
             $userHash=hash('sha256', $user);
             $passHash=hash('sha256', $pass);
+            $userRow=mysql_fetch_array($results);
             if ($passHash == $userRow['passwd_hash']){
                 setcookie("authuser", "$user|$userHash", 0, '/', $MY_DOMAIN);
                 header('Location: index.php');
@@ -57,8 +57,8 @@
                     <td><input type="password" name="pass" value="<?php echo $pass; ?>"></td>
                 </tr>
                 <tr>
-                    <td><div style="color:red"><?php echo $errorMsg; ?></div></td>
                     <td><input type="submit"></td>
+                    <td><div style="color:red"><?php echo $errorMsg; ?></div></td>
                 </tr>
             </table>
         </form>
