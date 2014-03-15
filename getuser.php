@@ -3,11 +3,12 @@
     require($_SERVER['DOCUMENT_ROOT']."/include.php");
 
     $loginID="";
+    $userPrivs=1000;
     
     if ($_COOKIE['authuser'] != ""){
         
         list($token, $hash)=split("\|", $_COOKIE['authuser']);
-//        echo $DB_HOST;
+        $userPrivs=lookUpPriv($token);
         
         if(verify_login($token, $hash)){
             $loginID=$token;
@@ -15,17 +16,7 @@
         
     }
     
-//    echo "LoginID is $loginID";
-    
     function verify_login($token, $hash){
-        //need to come back and adjust this.  It's a weak security model.
-        
- //       echo "hi";
-        
-        //lookUpPriv is a global function in hidden include.php file - valid userids have access <= 999
-        if (lookUpPriv($token) >= 1000){
-            return false;
-        }
         
         if (hash('sha256', $token)==$hash){
             return true;

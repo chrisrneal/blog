@@ -1,6 +1,5 @@
 <?php
 
-//   include($_SERVER['DOCUMENT_ROOT']."/include.php");
     require($_SERVER['DOCUMENT_ROOT']."/blog/getuser.php");
 
 ?>
@@ -15,16 +14,19 @@
     <body>
 
         <h1>Chris' Blog</h1>
-        <div class="titlebar"><a href="/blog/post/">add entry</a>
+        <div class="titlebar">
         <?php
             $tab="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
-            if ($loginID==""){
+            if ($userPrivs < 10){
+                echo "<a href=\"/blog/post/\">add entry</a>";
                 echo $tab;
+            }
+        
+            if ($loginID==""){
                 echo "<a href=\"/blog/signup/\">sign up</a>";
                 echo $tab;
                 echo "<a href=\"/blog/login.php\">login</a>";
             }else{
-                echo $tab;
                 echo "<a href=\"/blog/logout.php\">logout $loginID!</a>";
             }
         ?>
