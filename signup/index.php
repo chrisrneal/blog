@@ -43,7 +43,7 @@
                 or die("unable to connect to mysql");
             $db = mysql_select_db('blogapp', $dbroot)
                 or die("Unable to connect to db " . mysql_error());
-            $sql = "INSERT INTO users (username, passwd_hash, access_level) VALUES ('$user', '$passHash', '$access_level')";
+            $sql = "INSERT INTO users (username, passwd_hash, access_level, email) VALUES ('$user', '$passHash', '$access_level', '$email')";
             mysql_query($sql);
             
             echo mysql_error();
