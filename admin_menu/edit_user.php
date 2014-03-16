@@ -100,12 +100,12 @@
             echo "<td>" . $row['username'] . "</td>";
             echo "<td>" . $row['access_level'] . "</td>";
             echo "<td>" . $row['email'] . "</td>";
-            if ($row['access_level'] >= $userPrivs && $row['username'] != $loginID){
+            if ($row['access_level'] > $userPrivs && $row['username'] != $loginID){
                 echo "<td><center><a href=\"/blog/admin_menu/edit_user.php?delete=NO&edit=YES&record=" . $row[id] . "\">EDIT</a></center></td>";
                 echo "<td><center><a href=\"/blog/admin_menu/edit_user.php?delete=YES&edit=NO&record=" . $row[id] . "\">DELETE</a></center></td>";
             }else{
-                echo "<td>EDIT</td>";
-                echo "<td>DELETE</td>";
+                echo "<td><center>EDIT</center></td>";
+                echo "<td><center>DELETE</center></td>";
             }
             echo "</tr>";
         }

@@ -3,7 +3,7 @@
     require($_SERVER['DOCUMENT_ROOT']."/blog/getuser.php");
     
     //if user isn't admin then, redirect to home and end script.
-    if ($userPrivs != 0){
+    if ($userPrivs > 5){
         header('Location: ../index.php');
         return 0;
     }

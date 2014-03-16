@@ -30,7 +30,7 @@
                 echo "<a href=\"/blog/logout.php\">logout $loginID!</a>";
             }
             
-            if ($userPrivs == 0){
+            if ($userPrivs < 6){
                 //User has administrator privledges and can access the admin_menu
                 echo $tab;
                 echo "<a href=\"/blog/admin_menu/\">admin_menu</a>";
