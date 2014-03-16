@@ -29,4 +29,4 @@
             echo $tab;
             echo "<a href=\"/blog/admin_menu/edit_user.php\">users</a>";
         ?>
-        </div>
+        </div><br><br>
