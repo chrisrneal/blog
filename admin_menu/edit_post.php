@@ -14,7 +14,7 @@
     	
     	$title=htmlspecialchars($_POST["title"], ENT_QUOTES | ENT_HTML5);
         $entry=htmlspecialchars($_POST["post"], ENT_QUOTES | ENT_HTML5);
-        $post=htmlspecialchars($_POST["id"])
+        $post=htmlspecialchars($_POST["id"]);
         $entry=nl2br($entry);
         
         if ($title == "" or $entry == ""){
@@ -49,25 +49,26 @@
         	$results=mysql_query($sql);
         	$err=htmlspecialchars($_GET['err']);
         	
-        	if (mysql_num_rows($results == 1){
+        	if (mysql_num_rows($results) == 1){
         		$confirmMessage = "";
-        		if ($err){
-        			$confirmMessage .= "<div class="error">You cannot leave the title or contents blank.</div>";
+        		if ($err == "YES"){
+        			$confirmMessage .= "<div class=\"error\">You cannot leave the title or contents blank.</div>";
         		}
-        		$row = mysql_fetch_array($sql);
-	        	mysql_close();
+        		$row = mysql_fetch_array($results);
+	        	
     	    	$confirmMessage .= "<form method=\"post\"><br><label>
                 				<div>Title:<div>
                 				<input type=\"text\" name=\"title\" value=";
-				$confirmMessage .= htmlspecialchars($row['title']);
+				$confirmMessage .= $row['title'];
 				$confirmMessage .= "></label><br><label><div>Post:</div>
                 				<textarea name=\"post\">";
-	            $confirmMessage .= htmlspecialchars($row['contents']);
+	            $confirmMessage .= strip_tags($row['contents']);
     	        $confirmMessage .= "</textarea></label><br>";
     	        $confirmMessage .= "<input type=\"hidden\" name=\"id\" value=\"";
     	        $confirmMessage .= $post . "\"><input type=\"submit\"></form>";
+    	        mysql_close();
         	}else{
-        		$confirmMessage = "There was an error processing your request."
+        		$confirmMessage = "There was an error processing your request.";
         	}
         }
         

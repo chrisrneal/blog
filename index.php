@@ -53,10 +53,11 @@
     			echo "<table><tr><td><div class=\"title\">".$row['title'] . "</div></td><td><div class=\"date\">" . $row['date_created'] ."</div></td></tr></table><hr noshade>";
     			echo "<table><tr><td><p class=\"contents\">".$row['contents']."</p></td></tr></table>";
     			//provide admin functions for admins
+    			$tab="&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
     			if($userPrivs < 10){
-    				echo "<br><a href=\"/blog/admin_menu/edit_post.php?delete=YES&edit=NO&post=" . $row['id'] . "\">EDIT</a>";
+    				echo "<br><a href=\"/blog/admin_menu/edit_post.php?delete=NO&edit=YES&post=" . $row['id'] . "\">EDIT</a>";
     				echo $tab;
-    			    echo "<br><a href=\"/blog/admin_menu/edit_post.php?delete=YES&edit=NO&post=" . $row['id'] . "\">DELETE</a>";
+    			    echo "<a href=\"/blog/admin_menu/edit_post.php?delete=YES&edit=NO&post=" . $row['id'] . "\">DELETE</a>";
     			}
     			echo "<br><br><br>";
             }
