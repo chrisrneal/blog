@@ -3,7 +3,7 @@
     require($_SERVER['DOCUMENT_ROOT']."/include.php");
     
     //if access isn't high enough to post - redirect to home and end script.
-    if ($userPrivs < 10){
+    if ($userPrivs > 10){
         header('Location: ../index.php');
         return 0;
     }
@@ -37,7 +37,6 @@
         }
     }
     
-
 ?>
 
 <HTML>
